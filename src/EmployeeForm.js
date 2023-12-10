@@ -28,7 +28,7 @@ const EmployeeForm = ({ values, handleChange, handleSubmit, errors, touched, isS
             {touched.name && errors.name && <p className="red">{errors.name}</p>}
             <Label for="name">Name</Label>
             <Input 
-              type="text" 
+              type="string" 
               name="name"
               value={values.name}
               onChange={handleChange}
@@ -73,24 +73,12 @@ const EmployeeForm = ({ values, handleChange, handleSubmit, errors, touched, isS
             />
           </FormGroup>
           <FormGroup>
-            {touched.annual_package && errors.annual_package && <p className="red">{errors.annual_package}</p>}
-            <Label for="annual_package">Annual Package</Label>
-            <Input 
-              type="number" 
-              name="annual_package"
-              value={values.annual_package}
-              onChange={handleChange}
-              id="annual_package" 
-              placeholder="Annual Package" 
-            />
-          </FormGroup>
-          <FormGroup>
-            {touched.job_role && errors.job_role && <p className="red">{errors.job_role}</p>}
-            <Label for="job_role">Job Role</Label>
-            <Input type="select" name="job_role" id="job_role" value={values.job_role} onChange={handleChange}>
+            {touched.designation && errors.designation && <p className="red">{errors.designation}</p>}
+            <Label for="designation">Job Role</Label>
+            <Input type="select" name="designation" id="designation" value={values.designation} onChange={handleChange}>
               <option>Select Role</option>
-              <option>Developer</option>
-              <option>DevOps</option>
+              <option>Growth Partner</option>
+              <option>Consultant Partner</option>
             </Input>
           </FormGroup>
           <FormGroup>
@@ -103,14 +91,14 @@ const EmployeeForm = ({ values, handleChange, handleSubmit, errors, touched, isS
             </Input>
           </FormGroup>
           <FormGroup>
-            {touched.location && errors.location && <p className="red">{errors.location}</p>}
-            <Label for="location">Location</Label>
-            <Input type="select" name="location" id="location" value={values.location} onChange={handleChange}>
-              <option>Select Location</option>
+            {touched.office_location && errors.office_location && <p className="red">{errors.office_location}</p>}
+            <Label for="office_location">office_location</Label>
+            <Input type="select" name="office_location" id="office_location" value={values.office_location} onChange={handleChange}>
+              <option>Select office_location</option>
               <option>Delhi</option>
               <option>Bangalore</option>
               <option>Hyderabad</option>
-              <option>Newyork</option>
+              <option>Delaware</option>
             </Input>
           </FormGroup>
           <FormGroup>
@@ -137,7 +125,7 @@ const FormikApp = withFormik({
     return { username, password }
   },
   handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
-    fetch('/employee/create', {
+    fetch('http://localhost:8081/api/v1/employee/create', {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {

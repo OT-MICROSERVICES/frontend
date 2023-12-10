@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import react, * as React from "react";
 import {Grid, StatsCard, Card, colors} from 'tabler-react';
-import C3Chart from "react-c3js";
+import C3Chart from 'react-c3js';
 
 function generateResult(input) {
   if (input === undefined) {
@@ -16,7 +16,7 @@ export function ListAllEmployees() {
     const [stats, handleStats] = useState([]);
 
     const FetchData = async () => {
-      const data = await fetch('/employee/search/all');
+      const data = await fetch('http://localhost:8081/api/v1/employee/search/all');
       const stats = await data.json();
       handleStats(stats)  
     }
@@ -42,7 +42,7 @@ export function ListEmployeeActiveEmployee() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('/employee/search/status');
+    const data = await fetch('http://localhost:8081/api/v1/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -68,7 +68,7 @@ export function ListEmployeeInActiveEmployee() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('/employee/search/status');
+    const data = await fetch('http://localhost:8081/api/v1/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -94,9 +94,9 @@ export function RoleDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('/employee/search/roles');
+    const data = await fetch('http://localhost:8081/api/v1/employee/search/designation');
     const stats = await data.json();
-    handleStats(stats)  
+    handleStats(stats)
   }
 
   useEffect(() => {
@@ -116,8 +116,8 @@ export function RoleDistribution() {
             data={{
               columns: [
                 // each columns data
-                ["DevOps", generateResult(empData["DevOps"])],
-                ["Developer", generateResult(empData["Developer"])],
+                ["DevOps", generateResult(empData["Growth Partner"])],
+                ["Developer", generateResult(empData["Consultant Partner"])],
               ],
               type: "donut", // default type of chart
               colors: {
@@ -148,7 +148,7 @@ export function LocationDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('/employee/search/location');
+    const data = await fetch('http://localhost:8081/api/v1/employee/search/location');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -173,7 +173,7 @@ export function LocationDistribution() {
               ["Delhi", generateResult(empData["Delhi"])],
               ["Bangalore", generateResult(empData["Bangalore"])],
               ["Hyederabad", generateResult(empData["Hyderabad"])],
-              ["Newyork", generateResult(empData["Newyork"])],
+              ["Newyork", generateResult(empData["Delaware"])],
             ],
             type: "donut", // default type of chart
             colors: {
@@ -208,7 +208,7 @@ export function StatusDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('/employee/search/status');
+    const data = await fetch('http://localhost:8081/api/v1/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
