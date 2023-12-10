@@ -25,6 +25,17 @@ const AttendanceForm = ({ values, handleChange, handleSubmit, errors, touched, i
             />
           </FormGroup>
           <FormGroup>
+          <Label for="name">Name</Label>
+        <Input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Employee Name"
+          value={values.name} // Use the item.name value
+          onChange={handleChange}
+        />
+      </FormGroup>
+          <FormGroup>
             {touched.status && errors.status && <p className="red">{errors.status}</p>}
             <Label for="status">Status</Label>
             <Input type="select" name="status" id="status" value={values.status} onChange={handleChange}>

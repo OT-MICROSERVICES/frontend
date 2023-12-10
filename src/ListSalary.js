@@ -9,7 +9,7 @@ class ListSalary extends React.Component {
 	}
 
 	loadData() {
-		fetch('/salary/search/all')
+		fetch('http://localhost:8080/api/v1/salary/search/all')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data })
@@ -31,16 +31,20 @@ class ListSalary extends React.Component {
           <Table>
             <Table.Header>
                  <Table.ColHeader>Employee ID</Table.ColHeader>
+                 <Table.ColHeader>Process date</Table.ColHeader>
                  <Table.ColHeader>Name</Table.ColHeader>
                  <Table.ColHeader>Salary</Table.ColHeader>
+                 <Table.ColHeader>Status</Table.ColHeader>
             </Table.Header>
             <Table.Body>
            { this.state.data.map((item, i) => {
                 return (
                     <Table.Row>
                         <Table.Col>{item.id}</Table.Col>
+                        <Table.Col>{item.processDate}</Table.Col>
                         <Table.Col>{item.name}</Table.Col>
-                        <Table.Col>{item.annual_package}</Table.Col>
+                        <Table.Col>{item.salary}</Table.Col>
+                        <Table.Col>{item.status}</Table.Col>
                     </Table.Row>
                 );
                 })

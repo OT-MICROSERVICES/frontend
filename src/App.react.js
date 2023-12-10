@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApmRoute } from '@elastic/apm-rum-react'
 //import { init as initApm } from "@elastic/apm-rum";
 
-import HomePage from "./HomePage.react";
-import EmployeeForm from "./EmployeeForm";
-import EmployeeList from './EmployeeList';
-import AttendanceForm from "./AttendanceForm";
-import ListAttendance from './AttendanceList';
-import ListSalary from './ListSalary';
+import HomePage from "./HomePage.react.js";
+import EmployeeForm from "./EmployeeForm.js";
+import EmployeeList from './EmployeeList.js';
+import AttendanceForm from "./AttendanceForm.js";
+import ListAttendance from './AttendanceList.js';
+import ListSalary from './ListSalary.js';
 
 import "tabler-react/dist/Tabler.css";
 

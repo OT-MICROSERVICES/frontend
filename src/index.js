@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "./custom.css";
 
-import App from "./App.react";
+import App from "./App.react.js";
 
 const rootElement = document.getElementById("root");
 

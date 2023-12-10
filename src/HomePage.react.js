@@ -29,7 +29,7 @@ import { ListAllEmployees,
   ListEmployeeInActiveEmployee,
   RoleDistribution,
   LocationDistribution,
-  StatusDistribution } from './EmployeeData';
+  StatusDistribution } from './EmployeeData.js';
 
 function Home() {
   return (
