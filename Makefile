@@ -9,7 +9,7 @@ build: install
 	npm run build
 
 docker-build:
-	ddocker build -t ${IMAGE_REGISTRY}/${IMAGE_NAME}:${APP_VERSION} -f Dockerfile .
+	docker build -t ${IMAGE_REGISTRY}/${IMAGE_NAME}:${APP_VERSION} -f Dockerfile .
 
 docker-push:
 	docker push ${IMAGE_REGISTRY}/${IMAGE_NAME}:${APP_VERSION}
