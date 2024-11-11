@@ -35,6 +35,12 @@ For building the docker image artifact of the frontend web, we can invoke anothe
 make docker-build
 ```
 
+For running the docker image artifact of the frontend web, we can invoke another make command.
+
+```makefile
+make docker-run
+```
+
 ## Contact Information
 
 [Opstree Opensource](opensource@opstree.com)
