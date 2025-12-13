@@ -10,7 +10,7 @@ class ListEmployee extends React.Component {
 	}
 	
 	loadData() {
-		fetch("http://localhost:8080/api/v1/employee/search/all")
+		fetch('/attendance/search')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data })
@@ -26,28 +26,22 @@ class ListEmployee extends React.Component {
       return (
           <SiteWrapper>
           <Page.Card
-              title="Employee List"
+              title="Attendance List"
           ></Page.Card>
           <Grid.Col md={6} lg={10} className="align-self-center">
           <Table>
             <Table.Header>
                  <Table.ColHeader>Employee ID</Table.ColHeader>
-                 <Table.ColHeader>Name</Table.ColHeader>
-                 <Table.ColHeader>Email</Table.ColHeader>
-                 <Table.ColHeader>Phone Number</Table.ColHeader>
-                 <Table.ColHeader>Job Role</Table.ColHeader>
-                 <Table.ColHeader>Job Location</Table.ColHeader>
+                 <Table.ColHeader>Status</Table.ColHeader>
+                 <Table.ColHeader>Date</Table.ColHeader>
             </Table.Header>
             <Table.Body>
            { this.state.data.map((item, i) => {
                 return (
                     <Table.Row>
                         <Table.Col>{item.id}</Table.Col>
-                        <Table.Col>{item.name}</Table.Col>
-                        <Table.Col>{item.email}</Table.Col>
-                        <Table.Col>{item.phone_number}</Table.Col>
-                        <Table.Col>{item.job_role}</Table.Col>
-                        <Table.Col>{item.location}</Table.Col>
+                        <Table.Col>{item.status}</Table.Col>
+                        <Table.Col>{item.date}</Table.Col>
                     </Table.Row>  
                 );
                 })  

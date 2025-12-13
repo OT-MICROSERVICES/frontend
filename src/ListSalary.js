@@ -9,7 +9,7 @@ class ListSalary extends React.Component {
 	}
 
 	loadData() {
-		fetch('/salary/search/all')
+		fetch('http://localhost:8081/api/v1/salary/search/all')
 			.then(response => response.json())
 			.then(data => {
 				this.setState({data: data })
@@ -40,7 +40,7 @@ class ListSalary extends React.Component {
                     <Table.Row>
                         <Table.Col>{item.id}</Table.Col>
                         <Table.Col>{item.name}</Table.Col>
-                        <Table.Col>{item.annual_package}</Table.Col>
+                        <Table.Col>{item.salary}</Table.Col>
                     </Table.Row>
                 );
                 })

@@ -137,7 +137,13 @@ const FormikApp = withFormik({
     return { username, password }
   },
   handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
-    fetch('http://localhost:8080/api/v1/employee/create', {
+    fetch('/employee/create', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+          'Content-Type': 'application/json'
+    }})
+    fetch('/notification/send', {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {

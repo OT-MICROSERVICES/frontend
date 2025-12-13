@@ -16,7 +16,7 @@ export function ListAllEmployees() {
     const [stats, handleStats] = useState([]);
 
     const FetchData = async () => {
-      const data = await fetch('http://localhost:8080/api/v1/employee/search/all');
+      const data = await fetch('/employee/search/all');
       const stats = await data.json();
       handleStats(stats)  
     }
@@ -42,7 +42,7 @@ export function ListEmployeeActiveEmployee() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('http://localhost:8080/api/v1/employee/search/status');
+    const data = await fetch('/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -68,7 +68,7 @@ export function ListEmployeeInActiveEmployee() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('http://localhost:8080/api/v1/employee/search/status');
+    const data = await fetch('/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -94,7 +94,7 @@ export function RoleDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('http://localhost:8080/api/v1/employee/search/roles');
+    const data = await fetch('/employee/search/roles');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -148,7 +148,7 @@ export function LocationDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('http://localhost:8080/api/v1/employee/search/location');
+    const data = await fetch('/employee/search/location');
     const stats = await data.json();
     handleStats(stats)  
   }
@@ -208,7 +208,7 @@ export function StatusDistribution() {
   const [stats, handleStats] = useState([]);
 
   const FetchData = async () => {
-    const data = await fetch('http://localhost:8080/api/v1/employee/search/status');
+    const data = await fetch('/employee/search/status');
     const stats = await data.json();
     handleStats(stats)  
   }
