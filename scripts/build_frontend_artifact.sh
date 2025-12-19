@@ -5,19 +5,28 @@ echo " Building OT-MICROSERVICES Frontend "
 echo "====================================="
 cd /bp/workspace/frontend 2>/dev/null || true
 
-# Remove any existing .npmrc that might have expired tokens
-if [ -f .npmrc ]; then
-  echo "-> Removing existing .npmrc with potentially expired tokens..."
-  rm -f .npmrc
-fi
+# Remove ALL .npmrc files that might have expired tokens
+echo "-> Removing any existing .npmrc files..."
+rm -f .npmrc
+rm -f ~/.npmrc
+rm -f /root/.npmrc
 
 # Clean npm cache to remove any cached credentials
 echo "-> Cleaning npm cache..."
-npm cache clean --force
+npm cache clean --force 2>/dev/null || true
+
+# Reset npm configuration completely
+echo "-> Resetting npm configuration..."
+npm config delete registry 2>/dev/null || true
+npm config delete //registry.npmjs.org/:_authToken 2>/dev/null || true
 
 # Configure npm to use public registry explicitly
 echo "-> Configuring npm to use public registry..."
 npm config set registry https://registry.npmjs.org/
+
+# Verify npm configuration
+echo "-> Current npm registry:"
+npm config get registry
 
 # Configure npm authentication if needed for private packages
 if [ -n "$NPM_TOKEN" ]; then
@@ -30,7 +39,7 @@ node -v || echo "node not found!"
 npm -v || echo "npm not found!"
 
 echo "-> Installing dependencies (npm install)..."
-npm install
+npm install --registry=https://registry.npmjs.org/
 
 echo "-> Running production build..."
 if ! npm run build; then
