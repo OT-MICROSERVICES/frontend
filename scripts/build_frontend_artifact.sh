@@ -11,6 +11,10 @@ rm -f .npmrc
 rm -f ~/.npmrc
 rm -f /root/.npmrc
 
+# Remove package-lock.json - it contains references to unavailable package versions
+echo "-> Removing package-lock.json to allow fresh dependency resolution..."
+rm -f package-lock.json
+
 # Clean npm cache to remove any cached credentials
 echo "-> Cleaning npm cache..."
 npm cache clean --force 2>/dev/null || true
@@ -38,8 +42,8 @@ echo "-> Node & npm versions:"
 node -v || echo "node not found!"
 npm -v || echo "npm not found!"
 
-echo "-> Installing dependencies (npm install)..."
-npm install --registry=https://registry.npmjs.org/
+echo "-> Installing dependencies (npm install with legacy peer deps)..."
+npm install --legacy-peer-deps --registry=https://registry.npmjs.org/
 
 echo "-> Running production build..."
 if ! npm run build; then
