@@ -68,9 +68,8 @@ if ! npm run build; then
 fi
 
 echo "-> Packaging build directory into artifact..."
-ARTIFACT_NAME="frontend-build.tar.gz"
+ARTIFACT_NAME="build"
 ARTIFACT_PATH="$(pwd)/$ARTIFACT_NAME"
-tar -czf "$ARTIFACT_NAME" build
 
 echo "====================================="
 echo " Artifact created successfully!"
