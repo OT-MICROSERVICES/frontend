@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-
+cd frontend-app
 echo "==> Building frontend-app"
 mvn package -DskipTests
 
