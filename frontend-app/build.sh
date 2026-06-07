@@ -1,9 +1,9 @@
 #!/bin/bash
-set -euo pipefail
+set -eu
+
 cd frontend-app
+
 echo "==> Building frontend-app"
-mvn package -DskipTests
+mvn clean package -DskipTests
 
-echo "==> Done. Run with:"
-echo "    java -jar target/frontend-app-1.0.0.jar"
-
+echo "==> Done"
