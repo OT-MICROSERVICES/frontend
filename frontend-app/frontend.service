@@ -1,0 +1,14 @@
+[Unit]
+Description=Frontend App
+After=network.target backend-app.service
+
+[Service]
+ExecStart=java -jar /home/buildpiper/frontend-app/target/frontend-app-1.0.0.jar
+WorkingDirectory=/home/buildpiper/frontend-app
+Restart=always
+User=buildpiper
+Environment=BACKEND_URL=http://localhost:8081
+
+[Install]
+WantedBy=multi-user.target
+

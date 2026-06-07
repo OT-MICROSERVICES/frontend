@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Frontend App</title>
+  <style>
+    body { font-family: monospace; max-width: 700px; margin: 60px auto; padding: 0 20px; }
+    h1   { border-bottom: 2px solid #333; padding-bottom: 8px; }
+    pre  { background: #f4f4f4; padding: 12px; border-radius: 4px; }
+    button { padding: 8px 16px; margin: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Frontend App (port 8080)</h1>
+  <p>Calls the Backend API at <strong th:text="${backendUrl}"></strong></p>
+
+  <button onclick="call('/api/health')">GET /api/health</button>
+  <button onclick="call('/api/items')">GET /api/items</button>
+  <button onclick="echo()">POST /api/echo</button>
+
+  <pre id="out">— response here —</pre>
+
+  <script th:inline="javascript">
+    const base = [[${backendUrl}]];
+    async function call(path) {
+      const r = await fetch(base + path);
+      document.getElementById('out').textContent = JSON.stringify(await r.json(), null, 2);
+    }
+    async function echo() {
+      const r = await fetch(base + '/api/echo', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({from:'frontend', msg:'hello'})
+      });
+      document.getElementById('out').textContent = JSON.stringify(await r.json(), null, 2);
+    }
+  </script>
+</body>
+</html>
