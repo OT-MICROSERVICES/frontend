@@ -1,0 +1,15 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: sr-multichannel-api-job-cron-apiv2-job-07
+  namespace: multichannel-job-07
+  labels:
+    app: sr-multichannel-api-job-cron
+    release: sr-multichannel-api-job-cron-apiv2-job-07     
+spec:
+  maxUnavailable: 0%
+  selector:
+    matchLabels:
+      app: sr-multichannel-api-job-cron
+      app.kubernetes.io/name: sr-multichannel-api-job-cron-apiv2-job-07
+      deployment: multichannel-sr-job-07-deployment
