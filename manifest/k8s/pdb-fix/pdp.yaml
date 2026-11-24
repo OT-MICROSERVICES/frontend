@@ -2,7 +2,7 @@ apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
   name: sr-multichannel-api-job-cron-apiv2-job-07
-  namespace: multichannel-job-07
+  namespace: dev
   labels:
     app: sr-multichannel-api-job-cron
     release: sr-multichannel-api-job-cron-apiv2-job-07     
