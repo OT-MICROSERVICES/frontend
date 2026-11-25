@@ -1,0 +1,29 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: small-nginx
+  labels:
+    app: small-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: small-nginx
+  template:
+    metadata:
+      labels:
+        app: small-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "16Mi"
+            limits:
+              cpu: "100m"
+              memory: "64Mi"
