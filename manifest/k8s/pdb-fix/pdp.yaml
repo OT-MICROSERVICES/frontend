@@ -7,9 +7,9 @@ metadata:
     app: sr-multichannel-api-job-cron
     release: sr-multichannel-api-job-cron-apiv2-job-07     
 spec:
-  maxUnavailable: 0%
+  maxUnavailable: 1%
   selector:
     matchLabels:
       app: sr-multichannel-api-job-cron
       app.kubernetes.io/name: sr-multichannel-api-job-cron-apiv2-job-07
-      deployment: multichannel-sr-job-07-deployment
+      deployment: demo-1-qa-qa
