@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: salary1-dev-dev
+  namespace: dev
   labels:
     app: small-nginx
 spec:
